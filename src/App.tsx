@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { RouteConfig } from './types/RouteConfigs'
 import { router } from './configuration/Router'
 import Layout from './layout/Layout'
+import { BASE_URL } from './configuration/Constant'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+
 
 export default function App(): JSX.Element 
 {
@@ -27,7 +29,7 @@ export default function App(): JSX.Element
     }
 
     return (
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route path="*" element={
                     <Layout>
@@ -37,6 +39,6 @@ export default function App(): JSX.Element
                     </Layout>
                 } />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
