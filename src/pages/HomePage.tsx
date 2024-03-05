@@ -10,6 +10,8 @@ const intro = (function() {
     let boxH: number= 910;
     const lineWeight = 1;
     const f = 60;
+    let v:number = 0;
+    let iteration: number = 0;
 
     function reverseColor(input:string) {
         var output = ((parseInt(input.replace('#',''),16)^16777215)&16777215).toString(16).toUpperCase();
@@ -44,47 +46,62 @@ const intro = (function() {
         boxH = h;
     }
 
-    function setup(ctx:CanvasRenderingContext2D): void {
+    function setup(ctx:CanvasRenderingContext2D, iteration:number = 0): void {
         ctx.beginPath();
         ctx.fillStyle = '#FFFFFF';
         ctx.strokeStyle = '#7497A5';
         ctx.lineWidth = lineWeight;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
+        iteration = iteration;
     }
 
     function draw(ctx:CanvasRenderingContext2D): void {
         for (let i:number=0; i<f; i++) {
+            if (i > v) return;
             //console.log(parseInt(i*100/f));    
             ctx.beginPath();
             ctx.strokeStyle = getAlpha('#7497A5', Math.round((i * 100 / f)) );
             ctx.moveTo(0, (i * 20));
-            ctx.quadraticCurveTo(boxW/3 + (i*10), boxH/2 ,boxW/3 + (i*20), boxH );
-            ctx.moveTo(boxW, boxH - (i*(boxH/f)));
-            ctx.quadraticCurveTo(boxW - (i*(boxW/f)), boxH/2 ,boxW/2 - (i*(boxW/f)),0 ); 
-            ctx.moveTo(boxW-i*(boxW/f), 0);
-            /*
-            ctx.quadraticCurveTo(350 +(i*8), boxH/3+(i*8),i*16, boxH);    
-            ctx.moveTo(0, (boxH) - (i*(boxH/f)));    
-            ctx.quadraticCurveTo(660 - (i*8),480-(i*8),boxW,boxH/200+(i*16));    
-            */
-            /*    
-            ctx.moveTo( 0,  (i*(boxH/182)));    
-            ctx.quadraticCurveTo(boxW/4 +i*6,  (i*(i*(boxH/50)/f)) , boxW/2 , boxH/2);    
-            ctx.moveTo(boxW/2 ,boxH/2);    
-            ctx.quadraticCurveTo(760 - (i*5), 580 - (i*10), boxW ,  (i*16)  );    
-            ctx.moveTo(boxW/2 ,boxH/2);    
-            ctx.quadraticCurveTo(boxW/1.1+(i*(i*8/f)), boxH/2+(i*8), i*(boxW*0.6/f), boxH);    
-            */ 
+
+            if (iteration === 0) {
+                ctx.quadraticCurveTo(boxW/3 + (i*10), boxH/2 ,boxW/3 + (i*20), boxH );
+                ctx.moveTo(boxW, boxH - (i*(boxH/f)));
+                ctx.quadraticCurveTo(boxW - (i*(boxW/f)), boxH/2 ,boxW/2 - (i*(boxW/f)),0 ); 
+                ctx.moveTo(boxW-i*(boxW/f), 0);
+            }
+            
+            if (iteration === 1) {
+                ctx.quadraticCurveTo(350 +(i*8), boxH/3+(i*8),i*16, boxH);    
+                ctx.moveTo(0, (boxH) - (i*(boxH/f)));    
+                ctx.quadraticCurveTo(660 - (i*8),480-(i*8),boxW,boxH/200+(i*16));    
+            }
+            
+            if (iteration === 2) {
+                ctx.moveTo( 0, (i*(boxH/182)));
+                ctx.quadraticCurveTo(boxW/4 +i*6, (i*(i*(boxH/50)/f)) , boxW/2 , boxH/2);
+                ctx.moveTo(boxW/2 ,boxH/2);
+                ctx.quadraticCurveTo(760 - (i*5), 580 - (i*10), boxW , (i*16) );
+                ctx.moveTo(boxW/2 ,boxH/2);
+                ctx.quadraticCurveTo(boxW/1.1+(i*(i*8/f)), boxH/2+(i*8), i*(boxW*0.6/f), boxH);
+            }
+            
             ctx.stroke();
         };
+    }
+
+    function step() {
+        if (v + 1 > f) return;
+        v++;
+
     }
 
     
     return {
         setDimensions: setDimensions,
         setupContext: setup,
-        drawContext: draw
+        drawContext: draw,
+        step: step
     }
 })();
 
@@ -98,8 +115,18 @@ export default function HomePage():JSX.Element
         if (canvas) {
             const ctx = canvas.getContext('2d');
             if (ctx) {
-                intro.setupContext(ctx);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const animationInstance = Math.floor(Math.random() * 3);
+                console.log(animationInstance)
+                intro.setupContext(ctx, animationInstance);
                 intro.drawContext(ctx);
+                const animate = () => {
+                    intro.step();
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    intro.drawContext(ctx);
+                    setTimeout(animate, 100);
+                }
+                animate();
             }
         }
     }, []);

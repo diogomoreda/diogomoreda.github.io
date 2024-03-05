@@ -15,7 +15,7 @@ export default function Layout({ children }:Props): JSX.Element
 
     const handleSelectItem = (item:RouteConfig, index:number):void => {
         setSelectedIndex(index);
-        console.log('selectedIndex:', selectedIndex);
+        //console.log('selectedIndex:', selectedIndex);
     }
 
     const handleNavigationToggle = () => {
