@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+html, body * {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.app {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app .layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app .layout .sidebar {
+    width: 200px;
+    padding: 12px;
+    background-color: #f0f0f0;
+    margin-left: 0;
+    transition: margin-left 0.5s ease-in;
+}
+.app .layout .sidebar.hidden {
+    margin-left: -200px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app .layout .content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
+.app .layout .content canvas {
+    min-width: 100%;
+    min-height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app .layout .content .emulator {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
+
+.button-page {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    bottom: 24px;
+    left: 24px;
+    cursor: pointer;
+}
+
+.button-page:before,
+.button-page:after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #777;
+    transition: transform 0.5s ease-out;
+}
+.button-page:before { transform: skew(-45deg, 0deg) }
+.button-page:after {  transform: skew(45deg, 0deg) }
+.hidden.button-page:before { transform: skew(45deg, 0deg) }
+.hidden.button-page:after {  transform: skew(-45deg, 0deg) }

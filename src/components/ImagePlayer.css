@@ -1,0 +1,30 @@
+.image-player {
+    padding: 12px;
+}
+
+.image-player ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.image-player ul li {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+}
+
+.image-player ul li .image-wrapper {
+    text-align: center;
+}
+
+.image-player ul li .image-wrapper img {
+    max-width: 90%;
+    max-height: 90%
+}
+
+.image-player ul li p {
+    color: #777;
+    font-style:italic;
+    font-size: 12px;
+}
