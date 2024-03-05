@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/diogomoreda/diogomoreda.github.io/static/css/main.c7b38637.css",
+    "main.js": "/diogomoreda/diogomoreda.github.io/static/js/main.89aec13a.js",
+    "static/js/453.42568bda.chunk.js": "/diogomoreda/diogomoreda.github.io/static/js/453.42568bda.chunk.js",
+    "index.html": "/diogomoreda/diogomoreda.github.io/index.html",
+    "main.c7b38637.css.map": "/diogomoreda/diogomoreda.github.io/static/css/main.c7b38637.css.map",
+    "main.89aec13a.js.map": "/diogomoreda/diogomoreda.github.io/static/js/main.89aec13a.js.map",
+    "453.42568bda.chunk.js.map": "/diogomoreda/diogomoreda.github.io/static/js/453.42568bda.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7b38637.css",
+    "static/js/main.89aec13a.js"
+  ]
+}
