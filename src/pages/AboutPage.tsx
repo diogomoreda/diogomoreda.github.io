@@ -38,7 +38,7 @@ export default function AboutPage(): JSX.Element {
 
     // function to fetch the initial data on load
     useEffect(() => {
-        console.log('Fetching data...');
+        //console.log('Fetching data...');
         fetchData(); 
     }, []);// only run once, onLoad
     

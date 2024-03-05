@@ -17,7 +17,7 @@ export default function ImagePage():JSX.Element
 
     const fetchData = async (url:string) => {
         try {
-            console.log('fetching:', url);
+            //console.log('fetching:', url);
             const result:ImageData[] | null = await ApiService.fetchData<ImageData[]>(url);
             setData(result);
         } catch (error:any) {

@@ -27,7 +27,7 @@ export default function App(): JSX.Element
     }
 
     return (
-        <BrowserRouter basename="/diogomoreda.github.io">
+        <BrowserRouter>
             <Routes>
                 <Route path="*" element={
                     <Layout>
