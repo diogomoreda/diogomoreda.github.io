@@ -48,6 +48,14 @@ export const router:RouteConfig[] = [
         element: <ImagePage />,
     },
     {
+        id: 'illustration',
+        title: 'Illustration',
+        sort: 2,
+        hidden: false,
+        path: '/illustration',  // when an image page is used, it should match the image folder name
+        element: <ImagePage />,
+    },
+    {
         id: 'tetris',
         title: 'Tetris Time',
         sort: 3,

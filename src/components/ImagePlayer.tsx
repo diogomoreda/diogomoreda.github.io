@@ -18,6 +18,11 @@ export default function ImagePlayer({ imageData }:Props):JSX.Element
     // function to assign the initial data to the state
     useEffect(() => {
         setData(imageData);
+        return () => {
+            setData(null);
+            setCurrentIndex(0);
+            window.scrollTo(0, 0); // Scroll to the top
+        }
     }, [imageData]);
 
     // function to scroll the window to the image with ref matching the currentIndex state  
@@ -41,7 +46,6 @@ export default function ImagePlayer({ imageData }:Props):JSX.Element
             imageRefs.current.forEach((ref, index) => {
                 if (ref) {
                     const rect = ref.getBoundingClientRect();
-      
                     // Check if the image is in the viewport
                     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
                         setCurrentIndex(index);

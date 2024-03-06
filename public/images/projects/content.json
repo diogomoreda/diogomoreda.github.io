@@ -21,22 +21,47 @@
     },
     {
         "id": "0004",
+        "path": "./images/projects/img_phonobooth_01.JPG",
+        "name": "img_phonobooth_ J P G 1"
+    },
+    {
+        "id": "0005",
+        "path": "./images/projects/img_phonobooth_05.png",
+        "name": "img_phonobooth_png 5"
+    },
+    {
+        "id": "0006",
         "path": "./images/projects/pb_manual0007.jpg",
         "name": "pb_manualjpg 7"
     },
     {
-        "id": "0005",
+        "id": "0007",
         "path": "./images/projects/pb_manual0010.jpg",
         "name": "pb_manualjpg 10"
     },
     {
-        "id": "0006",
+        "id": "0008",
         "path": "./images/projects/pb_manual0020.jpg",
         "name": "pb_manualjpg 20"
     },
     {
-        "id": "0007",
+        "id": "0009",
         "path": "./images/projects/phonobooth-ui.png",
         "name": "phonobooth ui NaN"
+    },
+    {
+        "id": "0010",
+        "path": "./images/projects/vlcsnap-2011-10-28-18h48m51s234.png",
+        "name": "vlcsnap 2011 10 28 18h48m51spng 2011"
+    },
+    {
+        "id": "0011",
+        "path": "./images/projects/vlcsnap-2011-10-28-18h48m58s50.png",
+        "name": "vlcsnap 2011 10 28 18h48m58spng 2011"
+    },
+    {
+        "id": "0012",
+        "path": "./images/projects/vlcsnap-2011-10-28-18h49m03s108.png",
+        "name": "vlcsnap 2011 10 28 18h49m03spng 2011"
     }
 ]

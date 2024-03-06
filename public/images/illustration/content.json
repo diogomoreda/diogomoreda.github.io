@@ -1,0 +1,27 @@
+[
+    {
+        "id": "0000",
+        "path": "./images/illustration/01.sitar-gnome.jpg",
+        "name": "sitar gnome 1"
+    },
+    {
+        "id": "0001",
+        "path": "./images/illustration/02.moon-fairy.jpg",
+        "name": "moon fairy 2"
+    },
+    {
+        "id": "0002",
+        "path": "./images/illustration/03.didge-girl.jpg",
+        "name": "didge girl 3"
+    },
+    {
+        "id": "0003",
+        "path": "./images/illustration/04.black&white-city-line.jpg",
+        "name": "black&white city line 4"
+    },
+    {
+        "id": "0004",
+        "path": "./images/illustration/05.headphones-monkey.jpg",
+        "name": "headphones monkey 5"
+    }
+]

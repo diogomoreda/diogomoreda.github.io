@@ -30,7 +30,14 @@ export default function ImagePage():JSX.Element
     // function to fetch the initial data on load
     useEffect(() => {
         //console.log('Fetching data...'); // <-- this is revealing a bug (method being called twice )
+        setLoading(true);
         fetchData(url); 
+
+        return () => {
+            setData(null);
+            setLoading(true);
+            setError(null);
+        }
     }, [url]);
 
     

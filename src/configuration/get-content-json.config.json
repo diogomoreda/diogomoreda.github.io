@@ -1,0 +1,15 @@
+{
+    "publicContentFolderPath": "./public",
+    "inputFolderNames": {
+        "image": "images",
+        "script": "apps"
+    },
+    "fileExtensions": {
+        "image": ["jpg", "png", "gif"],
+        "script": ["js"]
+    },
+    "idIndentation": 4,
+    "outputFileName": "content.json",
+    "sortItemsBy": "name", 
+    "sortingOrder": "ascending"
+}
